@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="card">
+    <header class="card-header">
+      <Head/>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <Map/>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <div class="column is-full">
+        <Table/>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Map from './components/Map.vue'
+import Table from "./components/Table";
+import Head from "@/components/Header";
+import 'vue-select/dist/vue-select.css';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Table,
+    Map,
+    Head
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "~bulma/css/bulma.css";
 </style>
