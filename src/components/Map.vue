@@ -17,7 +17,23 @@
             style="height:760px;"
             ref="mapRef"
             @dragend="handleDrag"
-        ></GmapMap>
+        >
+
+          <GmapMarker
+              :key="index"
+              v-for="(m, index) in markers"
+              :position="m.position"
+              :clickable="true"
+              :draggable="true"
+              @click="center=m.position"
+          >
+            <GmapInfoWindow
+                :position="m.position"
+            >
+              Posicao actual
+            </GmapInfoWindow>
+          </GmapMarker>
+        </GmapMap>
       </div>
     </div>
 </template>
@@ -34,6 +50,17 @@ export default {
         lat: -19.8208,
         lng: 34.8359
       },
+      markers: [{
+        position: {
+          lat: -19.8208,
+          lng: 34.8359
+        }
+      }, {
+        position: {
+          lat: -19.8208,
+          lng: 34.8369
+        }
+      }]
     }
   },
 
